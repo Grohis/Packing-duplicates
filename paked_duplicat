@@ -1,0 +1,20 @@
+def paked_line(line):
+    word = line.split()
+    result = []
+    current_simbol = []
+
+    for simbol in word:
+        if not current_simbol:
+            current_simbol.append(simbol)
+        elif simbol == current_simbol[-1]:
+            current_simbol.append(simbol)
+        else:
+            result.append(current_simbol)
+            current_simbol = [simbol]
+    
+    result.append(current_simbol)
+    
+    return result
+
+line = input()
+print(paked_line(line))
